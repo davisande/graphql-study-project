@@ -42,6 +42,20 @@ func (c *Course) FindAll() ([]Course, error) {
 	}
 	defer rows.Close()
 
+	return buildCourses(rows)
+}
+
+func (c *Course) FindaByCategoryId(categoryId string) ([]Course, error) {
+	rows, err := c.db.Query("SELECT * FROM courses WHERE category_id = $1", categoryId)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	return buildCourses(rows)
+}
+
+func buildCourses(rows *sql.Rows) ([]Course, error) {
 	courses := []Course{}
 	for rows.Next() {
 		var id, name, description, categoryId string

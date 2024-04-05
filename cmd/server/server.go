@@ -9,7 +9,7 @@ import (
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/davisande/graphql-study-project/graph"
-	"github.com/davisande/graphql-study-project/graph/internal/database"
+	"github.com/davisande/graphql-study-project/internal/database"
 	_ "github.com/mattn/go-sqlite3"
 )
 
